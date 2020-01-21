@@ -1,0 +1,58 @@
+@import '../../../assets/styles/palette'
+
+.big-wrapper
+  margin-top: 50px
+
+.small-wrapper
+  width: 100%
+
+.empty-result-text,
+.result-text
+  text-align: center
+  font-size: 30px
+  color: $primary-color
+
+.result
+  margin-bottom: 30px
+  .result-title
+    text-align: center
+    font-size: 25px
+    margin-top: 30px
+    color: $primary-color
+  .result-text
+    margin-bottom: 40px
+
+  ::ng-deep .ngx-basic-audio-player
+    margin-top: 30px
+    background-color: $primary-color
+    .ngx-basic-audio-player-button-handler
+      color: #FFFFFF
+    .mat-slider-thumb
+      background-color: #fff
+    .mat-slider-ticks-container
+      background-color: #fff
+    .ngx-basic-audio-player-duration
+      color: #fff
+    .ngx-basic-audio-player-duration + button
+      color: #fff
+
+  .actions
+    display: flex
+    margin-top: 30px
+    width: 100%
+    .auth-button
+      flex: 1
+      font-size: 20px
+      font-weight: 300
+      padding: 7px
+      &.cancel-btn
+        margin-right: 20px
+
+
+
+.finish-button
+  width: 100%
+  margin-top: 30px
+  font-size: 24px
+  font-weight: 300
+  padding: 7px

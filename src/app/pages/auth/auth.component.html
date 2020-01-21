@@ -1,0 +1,16 @@
+<div class="wrapper big-wrapper">
+  <mat-form-field>
+    <input matInput placeholder="Введите email" [formControl]="emailCtrl">
+    <mat-error *ngIf="emailCtrl.hasError('required')">Поле обязательное для заполнения</mat-error>
+    <mat-error *ngIf="emailCtrl.hasError('email')">Неверный формат email</mat-error>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button class="auth-button cancel-btn mat-accent text-uppercase" (click)="back()">
+      Назад
+    </button>
+    <button mat-raised-button class="auth-button mat-primary text-uppercase" [disabled]="emailCtrl.invalid" (click)="save()">
+      Далее
+    </button>
+  </div>
+</div>

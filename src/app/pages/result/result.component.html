@@ -1,1 +1,36 @@
-<p>result works!</p>
+<div class="wrapper" [class.small-wrapper]="dataService.resultSong" [class.big-wrapper]="!dataService.resultSong">
+  <div class="result" *ngIf="dataService.resultSong; else emptyResult">
+    <div class="result-text text-uppercase">
+      Я думаю это...
+    </div>
+    <div class="result-title">
+      {{ dataService.resultSong.title }}
+    </div>
+    <mat-basic-audio-player [audioUrl]="dataService.resultSong.source" [title]="dataService.resultSong.title"
+                            [displayTitle]="false" [displayVolumeControls]="true"></mat-basic-audio-player>
+
+    <div class="actions">
+      <button mat-raised-button class="auth-button cancel-btn mat-accent text-uppercase" (click)="apply(false)">
+        Не верно
+      </button>
+      <button mat-raised-button class="auth-button mat-primary text-uppercase" (click)="apply(true)">
+        Верно
+      </button>
+    </div>
+  </div>
+
+  <ng-template #emptyResult>
+    <div class="empty-result-text">
+      <span>
+        Мне не удалось ничего найти(((
+      </span>
+      <br>
+      <span>
+        Поздравляю с победой!!!
+      </span>
+    </div>
+    <button mat-raised-button class="finish-button mat-primary text-uppercase" (click)="finish()">
+      Закончить
+    </button>
+  </ng-template>
+</div>

@@ -1,0 +1,35 @@
+@import '../../../assets/styles/palette'
+
+.game-types
+  width: 100%
+  display: flex
+  justify-content: space-around
+  .game-type-icon
+    font-size: 55px
+    width: 55px
+    height: 55px
+    padding: 15px
+    cursor: pointer
+    border: 2px solid transparent
+    border-radius: 50%
+    &:hover,
+    &.active
+      transition: .7s
+      border: 2px solid $primary-color
+
+  &.game-type-choosed
+    justify-content: center
+    .game-type-icon
+      margin-right: 20px
+      font-size: 40px
+      width: 40px
+      height: 40px
+      padding: 10px
+
+
+.game-button
+  width: 100%
+  margin-top: 20px
+  font-size: 24px
+  font-weight: 300
+  padding: 7px

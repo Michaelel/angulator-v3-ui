@@ -4,32 +4,34 @@ import {MenuComponent} from './pages/menu/menu.component';
 import {GameComponent} from './pages/game/game.component';
 import {StatsComponent} from './pages/stats/stats.component';
 import {ResultComponent} from './pages/result/result.component';
+import {AuthComponent} from './pages/auth/auth.component';
+import {RoutesEnum} from './shared/enums/routes.enum';
 
 const routes: Routes = [
   {
     path      : '',
-    redirectTo: 'menu',
+    redirectTo: RoutesEnum.Menu,
     pathMatch : 'full',
   },
   {
-    path      : 'menu',
+    path      : RoutesEnum.Menu,
     component : MenuComponent,
   },
   {
-    path      : 'game',
+    path      : RoutesEnum.Game,
     component : GameComponent,
   },
   {
-    path      : 'stats',
+    path      : RoutesEnum.Stats,
     component : StatsComponent,
   },
   {
-    path      : 'result',
-    component : ResultComponent,
+    path      : RoutesEnum.Result,
+    loadChildren: () => import('./pages/result/result.module').then(m => m.ResultModule),
   },
   {
-    path        : 'auth',
-    loadChildren: () => import('./shared/modules/auth/auth.module').then(m => m.AuthModule),
+    path       : RoutesEnum.Auth,
+    component  : AuthComponent,
   },
   {
     path        : '**',

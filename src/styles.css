@@ -3,7 +3,7 @@
 html, body { height: 100%; background-color: #E8E8E8 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-button { color: #fff !important; }
+button[mat-raised-button] { color: #fff !important; }
 
 .text-uppercase { text-transform: uppercase }
 
@@ -11,3 +11,37 @@ button { color: #fff !important; }
 .mr-20 { margin-right: 20px }
 .mt-20 { margin-top: 20px }
 .mb-20 { margin-bottom: 20px }
+
+.d-flex { display: flex !important; }
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+
+.wrapper {
+  width: calc(100% - 40px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .7s;
+}
+
+.big-wrapper {
+  margin-top: 70px;
+}
+
+.small-wrapper {
+  margin-top: 20px;
+}
+
+.mat-form-field-label-wrapper span {
+  color: #64b5f6;
+}
+
+.mat-form-field-underline {
+  background-color: #64b5f6 !important;
+}
+
+.mat-hint {
+  color: #64b5f6 !important;
+}
+
