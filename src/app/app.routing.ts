@@ -19,11 +19,11 @@ const routes: Routes = [
   },
   {
     path      : RoutesEnum.Game,
-    component : GameComponent,
+    loadChildren: () => import('./pages/game/game.module').then(m => m.GameModule),
   },
   {
     path      : RoutesEnum.Stats,
-    component : StatsComponent,
+    loadChildren: () => import('./pages/stats/stats.module').then(m => m.StatsModule),
   },
   {
     path      : RoutesEnum.Result,

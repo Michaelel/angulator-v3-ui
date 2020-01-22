@@ -2,10 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import {LanguageToLocale} from '../app/shared/enums/language-to-locale.enum';
+
 export const environment = {
   production: false,
 
   backendRoute: 'localhost:8080/',
+
+  locale: LanguageToLocale.ru,
 };
 
 /*

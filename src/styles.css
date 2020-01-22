@@ -45,3 +45,31 @@ button[mat-raised-button] { color: #fff !important; }
   color: #64b5f6 !important;
 }
 
+*, ::after, ::before {
+  box-sizing: content-box !important;
+}
+
+.ngx-basic-audio-player {
+  background-color: #64b5f6
+}
+.ngx-basic-audio-player-button-handler {
+  color: #FFFFFF;
+}
+
+.mat-slider-thumb {
+  border-color: #FFFFFF !important;
+  background-color: #64b5f6 !important;
+}
+
+.mat-slider-ticks-container {
+  background-color: #FFFFFF;
+}
+
+.ngx-basic-audio-player-duration {
+  color: #FFFFFF;
+}
+
+.ngx-basic-audio-player-duration + button {
+  color: #FFFFFF;
+}
+

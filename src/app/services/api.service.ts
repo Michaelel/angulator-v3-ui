@@ -6,6 +6,7 @@ import {environment} from '../../environments/environment';
 import {GameStartResponseInterface} from '../shared/interfaces/game-start-response.interface';
 import {GameStartRequestInterface} from '../shared/interfaces/game-start-request.interface';
 import {GameFinishRequestInterface} from '../shared/interfaces/game-finish-request.interface';
+import {GameTypeEnum} from '../shared/enums/game-type.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,26 @@ export class ApiService {
   ) { }
 
   getStats(email: string): Observable<StatInterface[]> {
+    return of([
+      {
+        id: 1,
+        isWin: true,
+        date: '2020-01-20 12:34:00',
+        gameType: GameTypeEnum.Lyrics,
+        gameSource: 'Два типа людей',
+        answerTitle: 'Max Cake. Two types of people',
+        answerSource: 'assets/sound/cake.mp3',
+      },
+      {
+        id: 2,
+        isWin: false,
+        date: '2020-01-22 14:00:00',
+        gameType: GameTypeEnum.Lyrics,
+        gameSource: 'До костей',
+        answerTitle: 'Max Cake. Two types of people',
+        answerSource: 'assets/sound/cake.mp3',
+      }
+    ]);
     return this.http.get<StatInterface[]>(`${this.route}user/stats/get`, { params: { email } });
   }
 

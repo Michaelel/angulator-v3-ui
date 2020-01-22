@@ -1,0 +1,99 @@
+@import '../../../assets/styles/palette'
+
+.score-block
+  display: flex
+  align-items: center
+  color: $primary-color
+  margin-bottom: 20px
+
+.player
+  font-size: 40px
+  width: 40px
+  height: 40px
+  margin: 0 10px
+
+.score
+  font-size: 25px
+
+
+table
+  width: 100%
+  box-shadow: none
+  border: 1px solid $primary-color
+  border-bottom: none
+
+mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell
+  border-bottom-color: $primary-color
+
+tr.example-detail-row
+  height: 0
+
+tr
+  cursor: pointer
+
+.example-element-row td
+  border-bottom-width: 0
+
+
+.example-element-detail
+  overflow: hidden
+
+.mat-column-expandedDetail
+  padding: 0 10px !important
+  &.p-10
+    padding: 10px !important
+
+.example-element-diagram
+  min-width: 80px
+  border: 2px solid black
+  padding: 8px
+  font-weight: lighter
+  margin: 8px 0
+  height: 104px
+
+
+.example-element-symbol
+  font-weight: bold
+  font-size: 40px
+  line-height: normal
+
+
+.example-element-description
+  padding: 16px
+
+.question
+  margin-right: 20px
+
+.suggestion
+  display: flex
+  align-items: center
+
+.game-type
+  display: flex
+
+.suggestion-result
+  margin-top: 10px
+  .lyrics
+    font-weight: 600
+
+.answer-title
+  font-weight: 600
+
+.example-element-description-attribution
+  opacity: 0.5
+
+.audio-player
+  ::ng-deep .ngx-basic-audio-player
+    width: 340px
+    height: 40px
+  ::ng-deep .ngx-basic-audio-player-button-handler
+    padding: 0
+    font-size: 12px !important
+  ::ng-deep
+    .mat-slider-thumb
+      width: 14px
+      height: 14px
+  ::ng-deep
+    .mat-slider-horizontal
+      height: 40px
+      margin-top: -5px !important

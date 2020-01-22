@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {GameStartRequestInterface} from '../shared/interfaces/game-start-request.interface';
 import {GameStartResponseInterface} from '../shared/interfaces/game-start-response.interface';
 import {RoutesEnum} from '../shared/enums/routes.enum';
+import {StatInterface} from '../shared/interfaces/stat.interface';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,10 @@ export class GeneralDataService {
   resultSong: GameStartResponseInterface;
 
   routeAfterAuth: string;
+
+  gamesResults: StatInterface[];
+
+  shouldUpdateStats: boolean;
 
   constructor(
     private api: ApiService,
@@ -56,5 +62,9 @@ export class GeneralDataService {
       res => this.router.navigate([RoutesEnum.Menu]),
       e => console.log(e),
     );
+  }
+
+  getStats(): Observable<StatInterface[]> {
+    return this.api.getStats(this.email);
   }
 }
