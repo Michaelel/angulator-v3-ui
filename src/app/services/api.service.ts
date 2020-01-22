@@ -7,6 +7,7 @@ import {GameStartResponseInterface} from '../shared/interfaces/game-start-respon
 import {GameStartRequestInterface} from '../shared/interfaces/game-start-request.interface';
 import {GameFinishRequestInterface} from '../shared/interfaces/game-finish-request.interface';
 import {GameTypeEnum} from '../shared/enums/game-type.enum';
+import {pluck} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,7 @@ export class ApiService {
     //     answerSource: 'assets/sound/cake.mp3',
     //   }
     // ]);
-    return this.http.get<StatInterface[]>(`${this.route}user/stats/get`, { params: { email } });
+    return this.http.get<StatInterface[]>(`${this.route}user/stats/get`, { params: { email } }).pipe(pluck('data'));
   }
 
   startGame(payload: GameStartRequestInterface): Observable<GameStartResponseInterface> {
@@ -49,7 +50,7 @@ export class ApiService {
     //   title: 'Max Cake. Two types of people',
     //   source: 'assets/sound/cake.mp3',
     // });
-    return this.http.post<GameStartResponseInterface>(`${this.route}game/start`, payload, { headers: {'content-type': 'application/json'} });
+    return this.http.post<GameStartResponseInterface>(`${this.route}game/start`, payload, { headers: {'content-type': 'application/json'} }).pipe(pluck('data'));
   }
 
   finishGame(payload: GameFinishRequestInterface): Observable<void> {
