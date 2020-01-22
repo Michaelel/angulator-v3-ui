@@ -6,6 +6,7 @@ import {ResultComponent} from './result.component';
 import {ResultGuard} from './result.guard';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {ComponentStateModule} from '../../shared/modules/component-state/component-state.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {CommonModule} from '@angular/common';
       canActivate: [ ResultGuard ],
       component: ResultComponent,
     }]),
+    ComponentStateModule,
     MaterialModule,
     NgxAudioPlayerModule,
   ],

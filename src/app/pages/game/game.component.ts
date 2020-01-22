@@ -3,6 +3,9 @@ import {GameTypeEnum} from '../../shared/enums/game-type.enum';
 import {GeneralDataService} from '../../services/general-data.service';
 import {FormGroup} from '@angular/forms';
 import {fadeInOut} from '../../shared/animations';
+import {ComponentState} from '../../shared/modules/component-state/component-state.enum';
+import {RoutesEnum} from '../../shared/enums/routes.enum';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-game',
@@ -17,8 +20,11 @@ export class GameComponent implements OnInit, OnDestroy {
 
     formLink = new FormGroup({});
 
+    state = ComponentState.Success;
+
     constructor(
         private dataService: GeneralDataService,
+        private router: Router,
     ) {
     }
 
@@ -31,16 +37,28 @@ export class GameComponent implements OnInit, OnDestroy {
 
     changeGameType(gameType: GameTypeEnum): void {
         this.gameType = gameType;
-        this.dataService.showSmallAngulator = true;
+        this.dataService.showSmallAngulator = gameType !== GameTypeEnum.Lyrics;
     }
 
     find(): void {
-        const req = {
-            email: this.dataService.email,
-            gameType: this.gameType,
-            ...this.formLink.root.value,
-        };
-        this.dataService.findSong(req);
+      this.state = ComponentState.Loading;
+      const req = {
+          email: this.dataService.email,
+          gameType: this.gameType,
+          ...this.formLink.root.value,
+      };
+      this.dataService.findSong(req).subscribe(
+        res => {
+          this.dataService.resultSong = res;
+          this.dataService.gameStarted = true;
+          this.dataService.shouldUpdateStats = true;
+          this.router.navigate([RoutesEnum.Result]);
+        },
+        e => {
+          this.state = ComponentState.Success;
+          alert('Произошла ошибка, попробуйте еще раз.');
+        },
+      );
     }
 
 }

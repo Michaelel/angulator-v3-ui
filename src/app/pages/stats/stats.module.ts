@@ -7,6 +7,7 @@ import {MaterialModule} from '../../shared/modules/material/material.module';
 import {StatsComponent} from './stats.component';
 import {MomentPipe} from '../../shared/pipes/moment.pipe';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ComponentStateModule} from '../../shared/modules/component-state/component-state.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
       component: StatsComponent,
     }]),
     MaterialModule,
+    ComponentStateModule,
     NgxAudioPlayerModule,
   ],
   providers: [ StatsGuard ],

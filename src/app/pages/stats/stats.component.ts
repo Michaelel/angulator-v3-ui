@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {StatInterface} from '../../shared/interfaces/stat.interface';
+import {Component, OnInit} from '@angular/core';
 import {GeneralDataService} from '../../services/general-data.service';
-import { detailExpand} from '../../shared/animations';
+import {detailExpand} from '../../shared/animations';
 import {GameTypeEnum} from '../../shared/enums/game-type.enum';
+import {ComponentState} from '../../shared/modules/component-state/component-state.enum';
+import {defineState} from '../../shared/constants';
 
 @Component({
   selector: 'app-stats',
@@ -17,6 +18,7 @@ export class StatsComponent implements OnInit {
   score: string;
 
   gameTypeEnum = GameTypeEnum;
+  state = ComponentState.Loading;
 
   constructor(
     public dataService: GeneralDataService,
@@ -24,18 +26,19 @@ export class StatsComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.gamesResults && !this.dataService.shouldUpdateStats
-      ? console.log('nice')
+      ? this.state = ComponentState.Success
       : this.getStats();
   }
 
-  getStats(): void {
+  getStats = (): void => {
     this.dataService.getStats().subscribe(
       res => {
-        console.log('success');
         this.dataService.gamesResults = res;
         this.calculateScore();
+        this.dataService.shouldUpdateStats = false;
+        this.state = defineState(res);
       },
-      e => console.log(e),
+      e => this.state = ComponentState.Error,
     );
   }
 

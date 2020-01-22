@@ -42,26 +42,16 @@ export class GeneralDataService {
     this.isLoggedIn = true;
   }
 
-  findSong(request: GameStartRequestInterface): void {
-    this.api.startGame(request).subscribe(
-      res => {
-        this.resultSong = res;
-        this.gameStarted = true;
-        this.router.navigate([RoutesEnum.Result]);
-      },
-      e => console.log(e),
-    );
+  findSong(request: GameStartRequestInterface): Observable<GameStartResponseInterface> {
+    return this.api.startGame(request);
   }
 
-  finishGame(guess: boolean): void {
+  finishGame(guess: boolean): Observable<void> {
     const req = {
       id: this.resultSong.id,
       isWin: !guess,
     };
-    this.api.finishGame(req).subscribe(
-      res => this.router.navigate([RoutesEnum.Menu]),
-      e => console.log(e),
-    );
+    return this.api.finishGame(req);
   }
 
   getStats(): Observable<StatInterface[]> {

@@ -8,6 +8,8 @@ import {LyricsGameComponent} from './components/lyrics-game/lyrics-game.componen
 import {RecordAudioGameComponent} from './components/record-audio-game/record-audio-game.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../../shared/modules/material/material.module';
+import {ComponentState} from '../../shared/modules/component-state/component-state.enum';
+import {ComponentStateModule} from '../../shared/modules/component-state/component-state.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {MaterialModule} from '../../shared/modules/material/material.module';
       canActivate: [ GameGuard ],
       component: GameComponent,
     }]),
+    ComponentStateModule,
     MaterialModule,
     ReactiveFormsModule,
     NgxAudioPlayerModule,
