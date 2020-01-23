@@ -16,12 +16,6 @@ export class ApiService {
 
   route = environment.backendRoute;
 
-  headers = {
-    'Access-Control-Allow-Headers': 'content-type',
-    'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
-    'Access-Control-Allow-Origin': '*',
-  };
-
   constructor(
     private http: HttpClient,
   ) { }
@@ -47,13 +41,7 @@ export class ApiService {
     //     answerSource: 'assets/sound/cake.mp3',
     //   }
     // ]);
-    return this.http.get<StatInterface[]>(
-      `${this.route}user/stats/get`,
-      {
-        params: { email } ,
-        headers: this.headers,
-      }
-    ).pipe(pluck('data'));
+    return this.http.get<StatInterface[]>(`${this.route}user/stats/get`, { params: { email } }).pipe(pluck('data'));
   }
 
   startGame(payload: GameStartRequestInterface): Observable<GameStartResponseInterface> {
@@ -62,24 +50,12 @@ export class ApiService {
     //   title: 'Max Cake. Two types of people',
     //   source: 'assets/sound/cake.mp3',
     // });
-    return this.http.post<GameStartResponseInterface>(
-      `${this.route}game/start`,
-      payload,
-      {
-        headers: {'content-type': 'application/json', ...this.headers},
-      },
-    ).pipe(pluck('data'));
+    return this.http.post<GameStartResponseInterface>(`${this.route}game/start`, payload, { headers: {'content-type': 'application/json'} }).pipe(pluck('data'));
   }
 
   finishGame(payload: GameFinishRequestInterface): Observable<void> {
     // console.log(payload);
     // return of(null);
-    return this.http.post<void>(
-      `${this.route}game/finish`,
-      payload,
-      {
-        headers: {'content-type': 'application/json', ...this.headers},
-      },
-    );
+    return this.http.post<void>(`${this.route}game/finish`, payload);
   }
 }
