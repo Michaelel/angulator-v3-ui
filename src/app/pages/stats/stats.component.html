@@ -40,14 +40,17 @@
                 <div class="question">Предложенный вариат:</div>
                 <div class="game-type">
                   <mat-icon class="game-type-icon mat-primary"
+                            matTooltip="Проигрывание песни"
                             *ngIf="element.gameType === gameTypeEnum.Sound">
                     music_note
                   </mat-icon>
                   <mat-icon class="game-type-icon mat-primary"
+                            matTooltip="Напевание песни"
                             *ngIf="element.gameType === gameTypeEnum.Humming">
                     record_voice_over
                   </mat-icon>
                   <mat-icon class="game-type-icon mat-primary"
+                            matTooltip="Ввод слов из песни"
                             *ngIf="element.gameType === gameTypeEnum.Lyrics">
                     textsms
                   </mat-icon>

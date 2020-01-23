@@ -6,6 +6,7 @@ import {GameStartResponseInterface} from '../shared/interfaces/game-start-respon
 import {RoutesEnum} from '../shared/enums/routes.enum';
 import {StatInterface} from '../shared/interfaces/stat.interface';
 import {Observable} from 'rxjs';
+import {AngulatorMoodEnum} from '../shared/enums/angulator-mood.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class GeneralDataService {
 
   isLoggedIn: boolean;
   email: string;
+
+  angulatorMood = AngulatorMoodEnum.Default;
 
   showSmallAngulator: boolean;
 

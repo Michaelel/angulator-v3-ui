@@ -5,7 +5,7 @@
   <div class="empty-block" *ngIf="shouldHideArrowBack"></div>
   <img [class.big-img]="isAngulatorBigByRoute && !dataService.showSmallAngulator"
        [class.small-img]="!isAngulatorBigByRoute || dataService.showSmallAngulator"
-       src="assets/images/default-angulator.png" alt="Angulator">
+       [src]="'assets/images/' + dataService.angulatorMood + '.png'" alt="Angulator">
   <button mat-icon-button class="mat-primary" routerLink="auth">
     <mat-icon *ngIf="dataService.isLoggedIn" matTooltip="Профиль">how_to_reg</mat-icon>
     <mat-icon *ngIf="!dataService.isLoggedIn" matTooltip="Войти">perm_identity</mat-icon>

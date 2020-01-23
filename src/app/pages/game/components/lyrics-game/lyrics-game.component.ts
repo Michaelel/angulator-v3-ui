@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -13,10 +13,15 @@ export class LyricsGameComponent implements OnInit {
   });
 
   @Input() formLink: FormGroup;
+  @Output('findEmitter') findEmitter = new EventEmitter();
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.formLink.setParent(this.lyricsForm);
+  }
+
+  find(): void {
+    this.findEmitter.emit();
   }
 
   get sourceCtrl(): AbstractControl {

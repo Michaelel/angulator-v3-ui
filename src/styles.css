@@ -72,4 +72,9 @@ button[mat-raised-button] { color: #fff !important; }
 .ngx-basic-audio-player-duration + button {
   color: #FFFFFF;
 }
+.mat-slider-thumb {
+  width: 14px !important;
+  height: 14px !important;
+}
+
 

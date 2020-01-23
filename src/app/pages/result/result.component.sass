@@ -3,7 +3,6 @@
 .big-wrapper
   margin-top: 50px
 
-
 .empty-result-text,
 .result-text
   text-align: center
@@ -38,8 +37,20 @@
 
 
 .finish-button
-  width: 100%
+  width: calc(100% - 14px)
   margin-top: 30px
   font-size: 24px
   font-weight: 300
   padding: 7px
+
+@media (max-width: 420px)
+  .small-wrapper
+    margin-top: 0
+
+  .result
+    .result-title
+      font-size: 22px
+      margin-top: 20px
+
+    .result-text
+      margin-bottom: 0

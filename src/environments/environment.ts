@@ -7,7 +7,7 @@ import {LanguageToLocale} from '../app/shared/enums/language-to-locale.enum';
 export const environment = {
   production: false,
 
-  backendRoute: 'http://angulatorv3.loc/api/',
+  backendRoute: 'https://angulatorv3-backend.herokuapp.com/api/',
 
   locale: LanguageToLocale.ru,
 };

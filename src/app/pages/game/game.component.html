@@ -2,16 +2,19 @@
   <component-state [state]="state">
     <div class="game-types" [class.game-type-choosed]="gameType">
       <mat-icon class="game-type-icon mat-primary"
+                matTooltip="Проигрывание песни"
                 [class.active]="gameType === gameTypeEnum.Sound"
                 (click)="changeGameType(gameTypeEnum.Sound)">
         music_note
       </mat-icon>
       <mat-icon class="game-type-icon mat-primary"
                 [class.active]="gameType === gameTypeEnum.Humming"
+                matTooltip="Напевание песни"
                 (click)="changeGameType(gameTypeEnum.Humming)">
         record_voice_over
       </mat-icon>
       <mat-icon class="game-type-icon mat-primary"
+                matTooltip="Ввод слов из песни"
                 [class.active]="gameType === gameTypeEnum.Lyrics"
                 (click)="changeGameType(gameTypeEnum.Lyrics)">
         textsms
@@ -19,7 +22,7 @@
     </div>
 
     <app-record-audio-game *ngIf="gameType === gameTypeEnum.Humming || gameType === gameTypeEnum.Sound"></app-record-audio-game>
-    <app-lyrics-game [formLink]="formLink" *ngIf="gameType === gameTypeEnum.Lyrics"></app-lyrics-game>
+    <app-lyrics-game [formLink]="formLink" (findEmitter)="formLink.root.valid && find()" *ngIf="gameType === gameTypeEnum.Lyrics"></app-lyrics-game>
 
     <button mat-raised-button class="game-button mat-primary text-uppercase"
             [@fadeInOut]

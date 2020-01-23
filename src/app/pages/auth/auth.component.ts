@@ -32,6 +32,7 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   save(): void {
     this.dataService.setEmail(this.emailCtrl.value);
+    this.dataService.shouldUpdateStats = true;
     this.router.navigate([this.dataService.routeAfterAuth || RoutesEnum.Menu ]);
   }
 
