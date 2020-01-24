@@ -8,6 +8,7 @@ import {StatsComponent} from './stats.component';
 import {MomentPipe} from '../../shared/pipes/moment.pipe';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComponentStateModule} from '../../shared/modules/component-state/component-state.module';
+import {MatBasicAudioPlayerModule} from "../../shared/modules/mat-basic-audio-player/mat-basic-audio-player.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {ComponentStateModule} from '../../shared/modules/component-state/compone
     }]),
     MaterialModule,
     ComponentStateModule,
-    NgxAudioPlayerModule,
+    MatBasicAudioPlayerModule,
   ],
   providers: [ StatsGuard ],
 })

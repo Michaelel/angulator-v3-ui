@@ -11,6 +11,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthComponent} from './pages/auth/auth.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxAudioPlayerModule} from 'ngx-audio-player';
+import {MatBasicAudioPlayerComponent} from "./shared/modules/mat-basic-audio-player/mat-basic-audio-player.component";
+import {MatBasicAudioPlayerModule} from "./shared/modules/mat-basic-audio-player/mat-basic-audio-player.module";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,6 @@ import {NgxAudioPlayerModule} from 'ngx-audio-player';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxAudioPlayerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

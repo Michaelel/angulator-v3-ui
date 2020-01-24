@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../../shared/modules/material/material.module';
 import {ComponentState} from '../../shared/modules/component-state/component-state.enum';
 import {ComponentStateModule} from '../../shared/modules/component-state/component-state.module';
+import {MatBasicAudioPlayerModule} from "../../shared/modules/mat-basic-audio-player/mat-basic-audio-player.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {ComponentStateModule} from '../../shared/modules/component-state/compone
     ComponentStateModule,
     MaterialModule,
     ReactiveFormsModule,
-    NgxAudioPlayerModule,
+    MatBasicAudioPlayerModule,
   ],
   providers: [ GameGuard ],
 })

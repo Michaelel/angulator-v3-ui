@@ -69,8 +69,8 @@ export class RecordAudioGameComponent implements OnInit {
    */
   successCallback(stream: any): void {
     const options = {
-      mimeType: 'audio/wav',
-      numberOfAudioChannels: 1
+      type: 'audio',
+      mimeType: 'audio/webm',
     };
 
     const StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
