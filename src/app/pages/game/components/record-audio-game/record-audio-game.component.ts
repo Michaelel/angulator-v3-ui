@@ -12,6 +12,8 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class RecordAudioGameComponent implements OnInit {
 
+  url: string;
+
 
   isRecordInProgress: boolean;
 
@@ -20,7 +22,6 @@ export class RecordAudioGameComponent implements OnInit {
   recordForm = this.fb.group({ source: ['', Validators.required ] })
 
   private record;
-  private url;
   private error;
 
   @Input() formLink: FormGroup;
@@ -43,7 +44,7 @@ export class RecordAudioGameComponent implements OnInit {
   /**
    * Start recording.
    */
-  initiateRecording() {
+  initiateRecording(): void {
     this.sourceCtrl.setValue('');
     this.url = '';
     this.isRecordInProgress = true;
@@ -66,7 +67,7 @@ export class RecordAudioGameComponent implements OnInit {
   /**
    * Will be called automatically.
    */
-  successCallback(stream) {
+  successCallback(stream: any): void {
     const options = {
       mimeType: 'audio/wav',
       numberOfAudioChannels: 1
@@ -76,24 +77,20 @@ export class RecordAudioGameComponent implements OnInit {
     this.record = new StereoAudioRecorder(stream, options);
     this.record.record();
   }
-  /**
-   * Stop recording.
-   */
-  stopRecording() {
+
+
+  stopRecording(): void {
     this.timer$.unsubscribe();
     this.isRecordInProgress = false;
     this.record.stop(this.processRecording.bind(this));
   }
-  /**
-   * processRecording Do what ever you want with blob
-   * @param  {any} blob Blog
-   */
-  processRecording(blob) {
+
+  processRecording(blob: any): any {
     this.url = URL.createObjectURL(blob);
     this.convertBlobToBase64(blob);
   }
 
-  convertBlobToBase64(blob): void {
+  convertBlobToBase64(blob: any): void {
     const reader = new FileReader();
     reader.readAsDataURL(blob);
     reader.onloadend = () => {
@@ -101,9 +98,7 @@ export class RecordAudioGameComponent implements OnInit {
       this.recordForm.markAsDirty();
     };
   }
-  /**
-   * Process Error.
-   */
+
   errorCallback(error) {
     this.error = 'Can not play audio in your browser';
   }
