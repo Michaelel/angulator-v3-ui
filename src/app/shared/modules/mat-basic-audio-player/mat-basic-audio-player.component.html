@@ -4,12 +4,9 @@
     </audio>
     <button mat-button (click)='playBtnHandler();' class="ngx-basic-audio-player-button-handler"
         style="font-size: 14px!important;" [disabled]="loaderDisplay">
-        <fa-icon *ngIf="loaderDisplay" title="loading..." class="fa fa-lg loading-track" [pulse]="true"
-            [icon]="['fas','spinner']" aria-hidden="true"></fa-icon>
-        <fa-icon *ngIf="!loaderDisplay && !isPlaying" class="fa fa-lg play-track" [icon]="['fas','play']"
-            aria-hidden="true"></fa-icon>
-        <fa-icon *ngIf="!loaderDisplay && isPlaying" class="fa fa-lg pause-track" [icon]="['fas','pause']"
-            aria-hidden="true"></fa-icon>
+        <mat-spinner class="small-spinner" color="#fff" [diameter]="20" *ngIf="loaderDisplay"></mat-spinner>
+        <mat-icon *ngIf="!loaderDisplay && !isPlaying">play_arrow</mat-icon>
+        <mat-icon *ngIf="!loaderDisplay && isPlaying">pause</mat-icon>
     </button>
     <div class="flex-fill pl-1 ngx-basic-audio-player-slider">
         <mat-slider style="width: 100%" min="0" max="{{duration}}" value="{{currentTime}}"
@@ -23,10 +20,8 @@
     </div>
     <button *ngIf="displayVolumeControls" mat-button (click)='toggleVolume();'
         style="padding: 0px!important; min-width:48px!important;">
-        <fa-icon *ngIf="volume === 0" class="fa fa-lg volume-mute" [icon]="['fas','volume-mute']" aria-hidden="true">
-        </fa-icon>
-        <fa-icon *ngIf="volume > 0" class="fa fa-lg volume-up" [icon]="['fas','volume-up']" aria-hidden="true">
-        </fa-icon>
+      <mat-icon *ngIf="volume === 0">volume_off</mat-icon>
+      <mat-icon *ngIf="volume > 0">volume_up</mat-icon>
     </button>
 </mat-card>
 
