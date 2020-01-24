@@ -5,9 +5,9 @@
     </div>
 
     <div class="player" *ngIf="url">
-<!--        <audio controls>-->
-<!--            <source [src]="sanitize(url)" type="audio/ogg">-->
-<!--        </audio>-->
+        <audio controls>
+            <source [src]="sanitize(url)" type="audio/wav">
+        </audio>
 
         <mat-basic-audio-player [audioUrl]="sanitize(url)" [title]="''"
                                 [displayTitle]="false" [displayVolumeControls]="true"></mat-basic-audio-player>

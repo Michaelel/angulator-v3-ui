@@ -7,6 +7,9 @@
       <div class="result-title">
         {{ dataService.resultSong.title }}
       </div>
+      <audio controls>
+        <source [src]="dataService.resultSong.source" type="audio/wav">
+      </audio>
       <mat-basic-audio-player [audioUrl]="dataService.resultSong.source" [title]="dataService.resultSong.title"
                               [displayTitle]="false" [displayVolumeControls]="true"></mat-basic-audio-player>
 
