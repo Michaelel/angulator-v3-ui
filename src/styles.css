@@ -34,15 +34,15 @@ button[mat-raised-button] { color: #fff !important; }
 }
 
 .mat-form-field-label-wrapper span {
-  color: #64b5f6;
+  color: #42a5f5;
 }
 
 .mat-form-field-underline {
-  background-color: #64b5f6 !important;
+  background-color: #42a5f5 !important;
 }
 
 .mat-hint {
-  color: #64b5f6 !important;
+  color: #42a5f5 !important;
 }
 
 *, ::after, ::before {
@@ -50,7 +50,7 @@ button[mat-raised-button] { color: #fff !important; }
 }
 
 .ngx-basic-audio-player {
-  background-color: #64b5f6
+  background-color: #42a5f5
 }
 .ngx-basic-audio-player-button-handler {
   color: #FFFFFF;
@@ -58,7 +58,7 @@ button[mat-raised-button] { color: #fff !important; }
 
 .mat-slider-thumb {
   border-color: #FFFFFF !important;
-  background-color: #64b5f6 !important;
+  background-color: #42a5f5 !important;
 }
 
 .mat-slider-ticks-container {
