@@ -22,7 +22,7 @@
             </div>
 
             <ng-container *ngIf="emptyBlock.childNodes.length == 0">
-                <span i18n="Стандартный текст компонента состояния если недостаточно данных для отображения" class="empty-text">Данные для отображения отсутствуют</span>
+                <span i18n="Стандартный текст компонента состояния если недостаточно данных для отображения" class="empty-text">Have no any data to show</span>
             </ng-container>
         </div>
     </ng-container>
@@ -31,15 +31,15 @@
     <ng-container *ngSwitchCase="componentStateEnum.Error">
         <div class="error-container" [ngStyle]="styles">
             <mat-icon class="error-icon text-color-secondary">mood_bad</mat-icon>
-            <div i18n="Блок появляющийся после возникновения ошибки при загрузке данных | Текст ошибки" class="error-text">Уппс.. Возникла
-                ошибка при загрузке данных
+            <div i18n="Блок появляющийся после возникновения ошибки при загрузке данных | Текст ошибки" class="error-text">Ooops... There
+                is an error by loading data
             </div>
             <button (click)="getData()"
                     *ngIf="getData"
                     color="accent"
                     i18n="Блок появляющийся после возникновения ошибки при загрузке данных | Текст кнопки повторной загрузки"
                     class="load-data-btn"
-                    mat-button>Попытаться еще раз
+                    mat-button>Try again
             </button>
         </div>
     </ng-container>

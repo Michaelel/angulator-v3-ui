@@ -55,6 +55,7 @@ export class RecordAudioGameComponent implements OnInit {
       video: false,
       audio: true
     };
+
     navigator.mediaDevices
         .getUserMedia(mediaConstraints)
         .then(this.successCallback.bind(this), this.errorCallback.bind(this));

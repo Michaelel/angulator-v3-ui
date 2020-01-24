@@ -61,7 +61,7 @@ export class GameComponent implements OnInit, OnDestroy {
         },
         e => {
           this.state = ComponentState.Success;
-          alert('Произошла ошибка, попробуйте еще раз.');
+          alert('Something went wrong. Try again please');
         },
       );
     }

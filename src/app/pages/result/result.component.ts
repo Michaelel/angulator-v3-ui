@@ -34,7 +34,7 @@ export class ResultComponent implements OnInit {
       e => {
         this.state = ComponentState.Success;
         this.dataService.angulatorMood = AngulatorMoodEnum.Default;
-        alert('Произошла ошибка, попробуйте еще раз.');
+        alert('Something went wrong. Try again please');
       },
     );
   }
@@ -49,11 +49,6 @@ export class ResultComponent implements OnInit {
     this.dataService.angulatorMood = guess
       ? AngulatorMoodEnum.Happy
       : AngulatorMoodEnum.Congrats;
-  }
-
-  finish(): void {
-    this.dataService.angulatorMood = AngulatorMoodEnum.Default;
-    this.router.navigate([RoutesEnum.Menu]);
   }
 
 }

@@ -5,12 +5,12 @@
             matInput
             type="text"
             autofocus
-            placeholder="Введите строку из песни"
+            placeholder="Type title or lyrics of the song"
             formControlName="source"
             maxlength="255"
     >
-    <mat-error *ngIf="sourceCtrl.hasError('required')">Обязательное для заполнения поле</mat-error>
-    <mat-error *ngIf="sourceCtrl.hasError('minlength')">Введите хотя бы 5 символов</mat-error>
+    <mat-error *ngIf="sourceCtrl.hasError('required')">Required</mat-error>
+    <mat-error *ngIf="sourceCtrl.hasError('minlength')">Type at list 5 symbols</mat-error>
     <mat-hint align="end">{{sourceCtrl?.value.length}} / 255</mat-hint>
   </mat-form-field>
 </form>

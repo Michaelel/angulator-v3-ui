@@ -9,7 +9,7 @@ export const environment = {
 
   backendRoute: 'https://angulatorv3-backend.herokuapp.com/api/',
 
-  locale: LanguageToLocale.ru,
+  locale: LanguageToLocale.en,
 };
 
 /*

@@ -4,5 +4,5 @@ export const environment = {
   production: true,
   backendRoute: 'https://angulatorv3-backend.herokuapp.com/api/',
 
-  locale: LanguageToLocale.ru,
+  locale: LanguageToLocale.en,
 };

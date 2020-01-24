@@ -1,13 +1,13 @@
 <div class="header-wrapper">
-  <button mat-icon-button class="mat-primary" routerLink="/menu" *ngIf="!shouldHideArrowBack" matTooltip="Вернуться в меню">
+  <button mat-icon-button class="mat-primary" routerLink="/menu" *ngIf="!shouldHideArrowBack" matTooltip="Back to the menu">
     <mat-icon>arrow_back</mat-icon>
   </button>
   <div class="empty-block" *ngIf="shouldHideArrowBack"></div>
   <img [class.big-img]="isAngulatorBigByRoute && !dataService.showSmallAngulator"
        [class.small-img]="!isAngulatorBigByRoute || dataService.showSmallAngulator"
-       [src]="'assets/images/' + dataService.angulatorMood + '.png'" alt="Angulator">
+       [src]="'assets/images/' + dataService.angulatorMood + '.png'" [alt]="dataService.angulatorMood + ' angulator'">
   <button mat-icon-button class="mat-primary" routerLink="auth">
-    <mat-icon *ngIf="dataService.isLoggedIn" matTooltip="Профиль">how_to_reg</mat-icon>
-    <mat-icon *ngIf="!dataService.isLoggedIn" matTooltip="Войти">perm_identity</mat-icon>
+    <mat-icon *ngIf="dataService.isLoggedIn" matTooltip="Profile">how_to_reg</mat-icon>
+    <mat-icon *ngIf="!dataService.isLoggedIn" matTooltip="Log In">perm_identity</mat-icon>
   </button>
 </div>

@@ -2,7 +2,7 @@
   <component-state [state]="state">
     <div class="result" *ngIf="dataService.resultSong.source; else emptyResult">
       <div class="result-text text-uppercase">
-        Я думаю это...
+        I think it's...
       </div>
       <div class="result-title">
         {{ dataService.resultSong.title }}
@@ -15,10 +15,10 @@
 
       <div class="actions">
         <button mat-raised-button class="auth-button cancel-btn mat-accent text-uppercase" (click)="apply(false)">
-          Не верно
+          Incorrect
         </button>
         <button mat-raised-button class="auth-button mat-primary text-uppercase" (click)="apply(true)">
-          Верно
+          Correct
         </button>
       </div>
     </div>
@@ -28,15 +28,15 @@
   <ng-template #emptyResult>
     <div class="empty-result-text">
       <span>
-        Мне не удалось ничего найти(((
+       I couldn't find anything(((
       </span>
       <br>
       <span>
-        Поздравляю с победой!!!
+        Congratulations!!!
       </span>
     </div>
-    <button mat-raised-button class="finish-button mat-primary text-uppercase" (click)="finish()">
-      Закончить
+    <button mat-raised-button class="finish-button mat-primary text-uppercase" (click)="apply(false)">
+      Finish
     </button>
   </ng-template>
 </div>
