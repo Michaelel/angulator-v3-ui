@@ -36,13 +36,17 @@ export class StatsComponent implements OnInit, OnDestroy {
   }
 
   getStats = (): void => {
+    this.dataService.angulatorMood = AngulatorMoodEnum.Thinking;
     this.dataService.getStats().subscribe(
       res => {
         this.dataService.gamesResults = res;
         this.applyCurrentStats();
         this.dataService.shouldUpdateStats = false;
       },
-      e => this.state = ComponentState.Error,
+      e => {
+        this.dataService.angulatorMood = AngulatorMoodEnum.Default;
+        this.state = ComponentState.Error;
+      },
     );
   }
 

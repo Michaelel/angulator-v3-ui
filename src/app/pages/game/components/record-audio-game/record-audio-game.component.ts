@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import {Component, Input, OnInit} from '@angular/core';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import * as RecordRTC from 'recordrtc';
-import { interval, Observable, of, Subscription, timer } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {interval, Subscription} from 'rxjs';
+import {take, tap} from 'rxjs/operators';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {GeneralDataService} from "../../../../services/general-data.service";
+import {AngulatorMoodEnum} from "../../../../shared/enums/angulator-mood.enum";
 
 @Component({
   selector: 'app-record-audio-game',
@@ -28,6 +30,7 @@ export class RecordAudioGameComponent implements OnInit {
   constructor(
       private domSanitizer: DomSanitizer,
       private fb: FormBuilder,
+      private dataService: GeneralDataService,
   ) { }
 
   ngOnInit() {
@@ -58,6 +61,7 @@ export class RecordAudioGameComponent implements OnInit {
 
     const maxTimeToRecord = 10;
     let leftTime = 10;
+    this.dataService.angulatorMood = AngulatorMoodEnum.Listening;
     this.timer$ = interval(1000).pipe(
         take(maxTimeToRecord + 1),
         tap(() => leftTime--),
@@ -82,6 +86,7 @@ export class RecordAudioGameComponent implements OnInit {
   stopRecording(): void {
     this.timer$.unsubscribe();
     this.isRecordInProgress = false;
+    this.dataService.angulatorMood = AngulatorMoodEnum.Default;
     this.record.stop(this.processRecording.bind(this));
   }
 

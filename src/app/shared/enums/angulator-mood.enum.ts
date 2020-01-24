@@ -4,4 +4,5 @@ export enum AngulatorMoodEnum {
   Angry = 'angry',
   Congrats = 'congrats',
   Listening = 'listening',
+  Thinking = 'thinking',
 }

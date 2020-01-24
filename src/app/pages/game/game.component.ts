@@ -6,6 +6,7 @@ import {fadeInOut} from '../../shared/animations';
 import {ComponentState} from '../../shared/modules/component-state/component-state.enum';
 import {RoutesEnum} from '../../shared/enums/routes.enum';
 import {Router} from '@angular/router';
+import {AngulatorMoodEnum} from "../../shared/enums/angulator-mood.enum";
 
 @Component({
     selector: 'app-game',
@@ -45,6 +46,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
     find(): void {
       this.state = ComponentState.Loading;
+      this.dataService.angulatorMood = AngulatorMoodEnum.Thinking;
       const req = {
           email: this.dataService.email,
           gameType: this.gameType,

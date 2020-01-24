@@ -1,7 +1,7 @@
 <div class="record-game-wrapper">
     <div class="record-wrapper">
         <mat-icon class="record-button" *ngIf="!isRecordInProgress" (click)="initiateRecording()">play_arrow</mat-icon>
-        <mat-icon class="record-button" *ngIf="isRecordInProgress" (click)="stopRecording()">stop</mat-icon>
+        <mat-icon class="record-button recording" *ngIf="isRecordInProgress" (click)="stopRecording()">stop</mat-icon>
     </div>
 
     <div class="player" *ngIf="url">

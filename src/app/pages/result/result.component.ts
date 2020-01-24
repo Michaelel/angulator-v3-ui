@@ -24,6 +24,7 @@ export class ResultComponent implements OnInit {
   }
 
   apply(guess: boolean): void {
+    this.dataService.angulatorMood = AngulatorMoodEnum.Thinking;
     this.state = ComponentState.Loading;
     this.dataService.finishGame(guess).subscribe(
       res => {
@@ -32,6 +33,7 @@ export class ResultComponent implements OnInit {
       },
       e => {
         this.state = ComponentState.Success;
+        this.dataService.angulatorMood = AngulatorMoodEnum.Default;
         alert('Произошла ошибка, попробуйте еще раз.');
       },
     );
