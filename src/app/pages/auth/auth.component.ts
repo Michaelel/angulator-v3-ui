@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {GeneralDataService} from '../../services/general-data.service';
 import {Router} from '@angular/router';
@@ -13,6 +13,7 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   emailCtrl = this.fb.control(this.dataService.email || '', [Validators.email, Validators.required])
 
+  @ViewChild('emailInput', { static: false }) emailInput: ElementRef;
   constructor(
     private fb: FormBuilder,
     private dataService: GeneralDataService,
@@ -20,7 +21,9 @@ export class AuthComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    setTimeout(() => this.emailInput.nativeElement.focus(), 100);
   }
+
 
   ngOnDestroy(): void {
     this.dataService.routeAfterAuth = null;

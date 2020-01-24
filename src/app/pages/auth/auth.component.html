@@ -1,6 +1,6 @@
 <div class="wrapper big-wrapper">
   <mat-form-field>
-    <input matInput placeholder="Введите email" [formControl]="emailCtrl">
+    <input matInput placeholder="Введите email" [formControl]="emailCtrl" #emailInput (keyup.enter)="emailCtrl.valid && save()">
     <mat-error *ngIf="emailCtrl.hasError('required')">Поле обязательное для заполнения</mat-error>
     <mat-error *ngIf="emailCtrl.hasError('email')">Неверный формат email</mat-error>
   </mat-form-field>

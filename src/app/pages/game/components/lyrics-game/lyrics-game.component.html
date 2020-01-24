@@ -1,12 +1,13 @@
 <form [formGroup]="lyricsForm" class="lyrics-form" (keyup.enter)="find()">
   <mat-form-field>
     <input class="source-textarea"
-              matInput
-              type="text"
-              autofocus
-              placeholder="Введите строку из песни"
-              formControlName="source"
-              maxlength="255"
+           #sourceInput
+            matInput
+            type="text"
+            autofocus
+            placeholder="Введите строку из песни"
+            formControlName="source"
+            maxlength="255"
     >
     <mat-error *ngIf="sourceCtrl.hasError('required')">Обязательное для заполнения поле</mat-error>
     <mat-error *ngIf="sourceCtrl.hasError('minlength')">Введите хотя бы 5 символов</mat-error>

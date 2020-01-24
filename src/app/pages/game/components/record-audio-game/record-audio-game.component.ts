@@ -68,6 +68,7 @@ export class RecordAudioGameComponent implements OnInit {
     const options = {
       type: 'audio',
       mimeType: 'audio/webm',
+      bufferSize: 4096,
     };
 
     this.haveAccessToMicro = true;

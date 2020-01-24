@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -14,9 +14,11 @@ export class LyricsGameComponent implements OnInit {
 
   @Input() formLink: FormGroup;
   @Output('findEmitter') findEmitter = new EventEmitter();
+  @ViewChild('sourceInput', { static: false }) sourceInput: ElementRef;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    setTimeout(() => this.sourceInput.nativeElement.focus(), 100);
     this.formLink.setParent(this.lyricsForm);
   }
 
