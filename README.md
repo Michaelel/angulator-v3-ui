@@ -2,7 +2,7 @@
 
 Simplified shazam in a playful way.
 
-##Table of contents
+## Table of contents
 
 - [Getting started](#getting-started)
 - [How to use](#how-to-use)
