@@ -4,6 +4,11 @@
         <mat-icon class="record-button recording" *ngIf="isRecordInProgress" (click)="stopRecording()">stop</mat-icon>
     </div>
 
+    <div class="no-access-to-micro" *ngIf="!haveAccessToMicro">
+      <mat-icon class="mr-20">warning</mat-icon>
+      <span>Не удалось получить доступ к микрофону</span>
+    </div>
+
     <div class="player" *ngIf="url">
         <audio controls>
             <source [src]="sanitize(url)" type="audio/wav">

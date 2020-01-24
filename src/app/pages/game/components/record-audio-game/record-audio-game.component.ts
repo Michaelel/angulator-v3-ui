@@ -16,6 +16,7 @@ export class RecordAudioGameComponent implements OnInit {
 
   url: string;
 
+  haveAccessToMicro = true;
 
   isRecordInProgress: boolean;
 
@@ -50,7 +51,6 @@ export class RecordAudioGameComponent implements OnInit {
   initiateRecording(): void {
     this.sourceCtrl.setValue('');
     this.url = '';
-    this.isRecordInProgress = true;
     const mediaConstraints = {
       video: false,
       audio: true
@@ -59,23 +59,26 @@ export class RecordAudioGameComponent implements OnInit {
         .getUserMedia(mediaConstraints)
         .then(this.successCallback.bind(this), this.errorCallback.bind(this));
 
-    const maxTimeToRecord = 10;
-    let leftTime = 10;
-    this.dataService.angulatorMood = AngulatorMoodEnum.Listening;
-    this.timer$ = interval(1000).pipe(
-        take(maxTimeToRecord + 1),
-        tap(() => leftTime--),
-    ).subscribe(() => leftTime + 1 === 0 && this.stopRecording());
-
   }
   /**
    * Will be called automatically.
    */
   successCallback(stream: any): void {
+    this.isRecordInProgress = true;
     const options = {
       type: 'audio',
       mimeType: 'audio/webm',
     };
+
+    this.haveAccessToMicro = true;
+
+    const maxTimeToRecord = 10;
+    let leftTime = 10;
+    this.dataService.angulatorMood = AngulatorMoodEnum.Listening;
+    this.timer$ = interval(1000).pipe(
+      take(maxTimeToRecord + 1),
+      tap(() => leftTime--),
+    ).subscribe(() => leftTime + 1 === 0 && this.stopRecording());
 
     const StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
     this.record = new StereoAudioRecorder(stream, options);
@@ -106,6 +109,7 @@ export class RecordAudioGameComponent implements OnInit {
 
   errorCallback(error) {
     this.error = 'Can not play audio in your browser';
+    this.haveAccessToMicro = false;
   }
 
 }
