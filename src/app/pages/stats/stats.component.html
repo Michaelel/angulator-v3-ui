@@ -59,6 +59,9 @@
               <div class="suggestion-result">
                 <div class="lyrics" *ngIf="element.gameType === gameTypeEnum.Lyrics">"{{ element.gameSource }}"</div>
                 <div class="audio-player" *ngIf="element.gameType !== gameTypeEnum.Lyrics">
+                  <audio controls>
+                    <source [src]="element.gameSource" type="audio/wav">
+                  </audio>
                   <mat-basic-audio-player [audioUrl]="element.gameSource" [title]="''"
                                           [displayTitle]="false" [displayVolumeControls]="true"></mat-basic-audio-player>
                 </div>
