@@ -8,7 +8,7 @@
               formControlName="source"
               maxlength="255"
     >
-    <mat-error *ngIf="sourceCtrl.hasError('required')">Обязательное для заполнения поля</mat-error>
+    <mat-error *ngIf="sourceCtrl.hasError('required')">Обязательное для заполнения поле</mat-error>
     <mat-error *ngIf="sourceCtrl.hasError('minlength')">Введите хотя бы 5 символов</mat-error>
     <mat-hint align="end">{{sourceCtrl?.value.length}} / 255</mat-hint>
   </mat-form-field>

@@ -1,1 +1,18 @@
-<p>record-audio-game works!</p>
+<div class="record-game-wrapper">
+    <div class="record-wrapper">
+        <mat-icon class="record-button" *ngIf="!isRecordInProgress" (click)="initiateRecording()">play_arrow</mat-icon>
+        <mat-icon class="record-button" *ngIf="isRecordInProgress" (click)="stopRecording()">stop</mat-icon>
+    </div>
+
+    <div class="player" *ngIf="url">
+        <!--<audio controls>-->
+            <!--<source [src]="sanitize(url)" type="audio/ogg">-->
+        <!--</audio>-->
+
+
+        <mat-basic-audio-player [audioUrl]="sanitize(url)" [title]="''"
+                                [displayTitle]="false" [displayVolumeControls]="true"></mat-basic-audio-player>
+    </div>
+
+</div>
+

@@ -21,13 +21,13 @@
       </mat-icon>
     </div>
 
-    <app-record-audio-game *ngIf="gameType === gameTypeEnum.Humming || gameType === gameTypeEnum.Sound"></app-record-audio-game>
+    <app-record-audio-game [formLink]="formLink" *ngIf="gameType === gameTypeEnum.Humming || gameType === gameTypeEnum.Sound"></app-record-audio-game>
     <app-lyrics-game [formLink]="formLink" (findEmitter)="formLink.root.valid && find()" *ngIf="gameType === gameTypeEnum.Lyrics"></app-lyrics-game>
 
     <button mat-raised-button class="game-button mat-primary text-uppercase"
             [@fadeInOut]
             (click)="find()"
-            *ngIf="gameType === gameTypeEnum.Lyrics && formLink.root.valid && formLink.root.dirty">
+            *ngIf="formLink.root.valid && formLink.root.dirty">
       Найти
     </button>
   </component-state>

@@ -36,8 +36,11 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
     changeGameType(gameType: GameTypeEnum): void {
-        this.gameType = gameType;
-        this.dataService.showSmallAngulator = gameType !== GameTypeEnum.Lyrics;
+        this.gameType = null;
+        setTimeout(() => {
+            this.gameType = gameType;
+            this.dataService.showSmallAngulator = gameType !== GameTypeEnum.Lyrics;
+        }, 0);
     }
 
     find(): void {

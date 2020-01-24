@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {GeneralDataService} from '../../services/general-data.service';
-import {RoutesEnum} from '../../shared/enums/routes.enum';
-import {Router} from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { GeneralDataService } from '../../services/general-data.service';
+import { RoutesEnum } from '../../shared/enums/routes.enum';
+import { Router } from '@angular/router';
+import { AngulatorMoodEnum } from '../../shared/enums/angulator-mood.enum';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.sass']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
   constructor(
     private dataService: GeneralDataService,
@@ -16,6 +17,10 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.dataService.angulatorMood = AngulatorMoodEnum.Default;
   }
 
   startGame(): void {
