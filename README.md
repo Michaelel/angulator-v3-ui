@@ -37,7 +37,7 @@ In the menu of the game you have two buttons:
 * Stats
 
 To play in the game you should enter your email, which will be saved in the local storage. 
-Later you could change it by clicking on the icon in the top right angle of the page.
+Later you could change it by clicking on the icon in the right upper corner of the page.
 
 Then you might play in 3 types of game:
 * Sound
@@ -52,7 +52,7 @@ In the second type, you should record your signing.
 
 In these types of the game, the app recorded this sound (max record time is 10 seconds). 
 Then you can listen to it and rerecord if it sounds bad. If you make sure that record 
-sounds good you should click on the `find` button.
+sounds good you should click `find` button.
 
 In the third type of game (lyrics) you should type the title of the song or some row from
 there (min symbols are 5, max symbols are 255) and then click `find` button.
